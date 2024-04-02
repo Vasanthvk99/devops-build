@@ -1,0 +1,14 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Changing the File Permission') { 
+            steps {
+                sh 'chmod +x build.sh'
+                sh 'chmod +x deployment.sh'
+                sh './build.sh'
+                sh './deployment.sh'
+            }
+        }
+    }
+}
